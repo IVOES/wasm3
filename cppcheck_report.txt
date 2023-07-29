@@ -1,0 +1,1310 @@
+platforms/android/app/src/main/cpp/main.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 72 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+platforms/android/app/src/main/cpp/main.c:35:12: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+    result = m3_ParseModule (env, &module, wasm, fsize);
+           ^
+platforms/android/app/src/main/cpp/main.c:21:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+platforms/android/app/src/main/cpp/main.c:35:12: note: result is overwritten
+    result = m3_ParseModule (env, &module, wasm, fsize);
+           ^
+platforms/app/main.c:448:13: error: Resource leak: f [resourceLeak]
+            return "cannot write file";
+            ^
+platforms/app_fuzz/fuzzer.c:17:21: style: Variable 'result' is assigned a value that is never used. [unreadVariable]
+    M3Result result = m3Err_none;
+                    ^
+platforms/app_fuzz/fuzzer.c:28:20: style: Variable 'result' is assigned a value that is never used. [unreadVariable]
+            result = m3_ParseModule (env, &module, data, size);
+                   ^
+platforms/app_fuzz/fuzzer.c:33:28: style: Variable 'result' is assigned a value that is never used. [unreadVariable]
+                    result = m3_FindFunction (&f, runtime, "fib");
+                           ^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.c:453:20: style: The comparison 'retlen < 0' is always false. [knownConditionTrueFalse]
+        if (retlen < 0) {
+                   ^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.c:435:26: note: 'retlen' is assigned value '0' here.
+        ssize_t retlen = 0;
+                         ^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.c:453:20: note: The comparison 'retlen < 0' is always false.
+        if (retlen < 0) {
+                   ^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.c:611:1: style: Label '_catch' is not used. [unusedLabel]
+_catch:
+^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.c:538:38: style:inconclusive: Function 'm3_LinkEspWASI' argument 1 names different: declaration 'io_module' definition 'module'. [funcArgNamesDifferent]
+M3Result  m3_LinkEspWASI  (IM3Module module)
+                                     ^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.h:22:47: note: Function 'm3_LinkEspWASI' argument 1 names different: declaration 'io_module' definition 'module'.
+    M3Result    m3_LinkEspWASI     (IM3Module io_module);
+                                              ^
+platforms/embedded/esp32-idf-wasi/main/m3_api_esp_wasi.c:538:38: note: Function 'm3_LinkEspWASI' argument 1 names different: declaration 'io_module' definition 'module'.
+M3Result  m3_LinkEspWASI  (IM3Module module)
+                                     ^
+platforms/embedded/esp8266/src/main.cpp:51:5: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("Result: %d\n", value);
+    ^
+platforms/embedded/fomu/include/xxhash.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+platforms/embedded/fomu/include/xxhash.c:401:35: style:inconclusive: Boolean expression 'len>=16' is used in bitwise operation. Did you mean '||'? [bitwiseOnBoolean]
+    state->large_len |= (len>=16) | (state->total_len_32>=16);
+                                  ^
+platforms/embedded/fomu/include/xxhash.c:391:32: warning: Either the condition 'input==NULL' is redundant or there is pointer arithmetic with NULL pointer. [nullPointerArithmeticRedundantCheck]
+    const BYTE* const bEnd = p + len;
+                               ^
+platforms/embedded/fomu/include/xxhash.c:393:14: note: Assuming that condition 'input==NULL' is not redundant
+    if (input==NULL)
+             ^
+platforms/embedded/fomu/include/xxhash.c:390:21: note: Assignment 'p=(const unsigned char*)input', assigned value is 0
+    const BYTE* p = (const BYTE*)input;
+                    ^
+platforms/embedded/fomu/include/xxhash.c:391:32: note: Null pointer addition
+    const BYTE* const bEnd = p + len;
+                               ^
+platforms/embedded/fomu/include/xxhash.c:771:32: warning: Either the condition 'input==NULL' is redundant or there is pointer arithmetic with NULL pointer. [nullPointerArithmeticRedundantCheck]
+    const BYTE* const bEnd = p + len;
+                               ^
+platforms/embedded/fomu/include/xxhash.c:773:14: note: Assuming that condition 'input==NULL' is not redundant
+    if (input==NULL)
+             ^
+platforms/embedded/fomu/include/xxhash.c:770:21: note: Assignment 'p=(const unsigned char*)input', assigned value is 0
+    const BYTE* p = (const BYTE*)input;
+                    ^
+platforms/embedded/fomu/include/xxhash.c:771:32: note: Null pointer addition
+    const BYTE* const bEnd = p + len;
+                               ^
+platforms/embedded/fomu/include/xxhash.c:328:62: style:inconclusive: Function 'XXH32' argument 2 names different: declaration 'length' definition 'len'. [funcArgNamesDifferent]
+XXH_PUBLIC_API unsigned int XXH32 (const void* input, size_t len, unsigned int seed)
+                                                             ^
+platforms/embedded/fomu/include/xxhash.h:168:62: note: Function 'XXH32' argument 2 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API XXH32_hash_t XXH32 (const void* input, size_t length, unsigned int seed);
+                                                             ^
+platforms/embedded/fomu/include/xxhash.c:328:62: note: Function 'XXH32' argument 2 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API unsigned int XXH32 (const void* input, size_t len, unsigned int seed)
+                                                             ^
+platforms/embedded/fomu/include/xxhash.c:368:52: style:inconclusive: Function 'XXH32_copyState' argument 1 names different: declaration 'dst_state' definition 'dstState'. [funcArgNamesDifferent]
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dstState, const XXH32_state_t* srcState)
+                                                   ^
+platforms/embedded/fomu/include/xxhash.h:174:52: note: Function 'XXH32_copyState' argument 1 names different: declaration 'dst_state' definition 'dstState'.
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dst_state, const XXH32_state_t* src_state);
+                                                   ^
+platforms/embedded/fomu/include/xxhash.c:368:52: note: Function 'XXH32_copyState' argument 1 names different: declaration 'dst_state' definition 'dstState'.
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dstState, const XXH32_state_t* srcState)
+                                                   ^
+platforms/embedded/fomu/include/xxhash.c:368:83: style:inconclusive: Function 'XXH32_copyState' argument 2 names different: declaration 'src_state' definition 'srcState'. [funcArgNamesDifferent]
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dstState, const XXH32_state_t* srcState)
+                                                                                  ^
+platforms/embedded/fomu/include/xxhash.h:174:84: note: Function 'XXH32_copyState' argument 2 names different: declaration 'src_state' definition 'srcState'.
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dst_state, const XXH32_state_t* src_state);
+                                                                                   ^
+platforms/embedded/fomu/include/xxhash.c:368:83: note: Function 'XXH32_copyState' argument 2 names different: declaration 'src_state' definition 'srcState'.
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dstState, const XXH32_state_t* srcState)
+                                                                                  ^
+platforms/embedded/fomu/include/xxhash.c:449:59: style:inconclusive: Function 'XXH32_update' argument 1 names different: declaration 'statePtr' definition 'state_in'. [funcArgNamesDifferent]
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* state_in, const void* input, size_t len)
+                                                          ^
+platforms/embedded/fomu/include/xxhash.h:177:59: note: Function 'XXH32_update' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* statePtr, const void* input, size_t length);
+                                                          ^
+platforms/embedded/fomu/include/xxhash.c:449:59: note: Function 'XXH32_update' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* state_in, const void* input, size_t len)
+                                                          ^
+platforms/embedded/fomu/include/xxhash.c:449:95: style:inconclusive: Function 'XXH32_update' argument 3 names different: declaration 'length' definition 'len'. [funcArgNamesDifferent]
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* state_in, const void* input, size_t len)
+                                                                                              ^
+platforms/embedded/fomu/include/xxhash.h:177:95: note: Function 'XXH32_update' argument 3 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* statePtr, const void* input, size_t length);
+                                                                                              ^
+platforms/embedded/fomu/include/xxhash.c:449:95: note: Function 'XXH32_update' argument 3 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* state_in, const void* input, size_t len)
+                                                                                              ^
+platforms/embedded/fomu/include/xxhash.c:500:64: style:inconclusive: Function 'XXH32_digest' argument 1 names different: declaration 'statePtr' definition 'state_in'. [funcArgNamesDifferent]
+XXH_PUBLIC_API unsigned int XXH32_digest (const XXH32_state_t* state_in)
+                                                               ^
+platforms/embedded/fomu/include/xxhash.h:178:65: note: Function 'XXH32_digest' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API XXH32_hash_t  XXH32_digest (const XXH32_state_t* statePtr);
+                                                                ^
+platforms/embedded/fomu/include/xxhash.c:500:64: note: Function 'XXH32_digest' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API unsigned int XXH32_digest (const XXH32_state_t* state_in)
+                                                               ^
+platforms/embedded/fomu/include/xxhash.c:711:68: style:inconclusive: Function 'XXH64' argument 2 names different: declaration 'length' definition 'len'. [funcArgNamesDifferent]
+XXH_PUBLIC_API unsigned long long XXH64 (const void* input, size_t len, unsigned long long seed)
+                                                                   ^
+platforms/embedded/fomu/include/xxhash.h:226:62: note: Function 'XXH64' argument 2 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API XXH64_hash_t XXH64 (const void* input, size_t length, unsigned long long seed);
+                                                             ^
+platforms/embedded/fomu/include/xxhash.c:711:68: note: Function 'XXH64' argument 2 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API unsigned long long XXH64 (const void* input, size_t len, unsigned long long seed)
+                                                                   ^
+platforms/embedded/fomu/include/xxhash.c:749:52: style:inconclusive: Function 'XXH64_copyState' argument 1 names different: declaration 'dst_state' definition 'dstState'. [funcArgNamesDifferent]
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dstState, const XXH64_state_t* srcState)
+                                                   ^
+platforms/embedded/fomu/include/xxhash.h:232:52: note: Function 'XXH64_copyState' argument 1 names different: declaration 'dst_state' definition 'dstState'.
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dst_state, const XXH64_state_t* src_state);
+                                                   ^
+platforms/embedded/fomu/include/xxhash.c:749:52: note: Function 'XXH64_copyState' argument 1 names different: declaration 'dst_state' definition 'dstState'.
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dstState, const XXH64_state_t* srcState)
+                                                   ^
+platforms/embedded/fomu/include/xxhash.c:749:83: style:inconclusive: Function 'XXH64_copyState' argument 2 names different: declaration 'src_state' definition 'srcState'. [funcArgNamesDifferent]
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dstState, const XXH64_state_t* srcState)
+                                                                                  ^
+platforms/embedded/fomu/include/xxhash.h:232:84: note: Function 'XXH64_copyState' argument 2 names different: declaration 'src_state' definition 'srcState'.
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dst_state, const XXH64_state_t* src_state);
+                                                                                   ^
+platforms/embedded/fomu/include/xxhash.c:749:83: note: Function 'XXH64_copyState' argument 2 names different: declaration 'src_state' definition 'srcState'.
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dstState, const XXH64_state_t* srcState)
+                                                                                  ^
+platforms/embedded/fomu/include/xxhash.c:826:59: style:inconclusive: Function 'XXH64_update' argument 1 names different: declaration 'statePtr' definition 'state_in'. [funcArgNamesDifferent]
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* state_in, const void* input, size_t len)
+                                                          ^
+platforms/embedded/fomu/include/xxhash.h:235:59: note: Function 'XXH64_update' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* statePtr, const void* input, size_t length);
+                                                          ^
+platforms/embedded/fomu/include/xxhash.c:826:59: note: Function 'XXH64_update' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* state_in, const void* input, size_t len)
+                                                          ^
+platforms/embedded/fomu/include/xxhash.c:826:95: style:inconclusive: Function 'XXH64_update' argument 3 names different: declaration 'length' definition 'len'. [funcArgNamesDifferent]
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* state_in, const void* input, size_t len)
+                                                                                              ^
+platforms/embedded/fomu/include/xxhash.h:235:95: note: Function 'XXH64_update' argument 3 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* statePtr, const void* input, size_t length);
+                                                                                              ^
+platforms/embedded/fomu/include/xxhash.c:826:95: note: Function 'XXH64_update' argument 3 names different: declaration 'length' definition 'len'.
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* state_in, const void* input, size_t len)
+                                                                                              ^
+platforms/embedded/fomu/include/xxhash.c:887:70: style:inconclusive: Function 'XXH64_digest' argument 1 names different: declaration 'statePtr' definition 'state_in'. [funcArgNamesDifferent]
+XXH_PUBLIC_API unsigned long long XXH64_digest (const XXH64_state_t* state_in)
+                                                                     ^
+platforms/embedded/fomu/include/xxhash.h:236:65: note: Function 'XXH64_digest' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API XXH64_hash_t  XXH64_digest (const XXH64_state_t* statePtr);
+                                                                ^
+platforms/embedded/fomu/include/xxhash.c:887:70: note: Function 'XXH64_digest' argument 1 names different: declaration 'statePtr' definition 'state_in'.
+XXH_PUBLIC_API unsigned long long XXH64_digest (const XXH64_state_t* state_in)
+                                                                     ^
+platforms/embedded/fomu/include/xxhash.h:155:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API unsigned XXH_versionNumber (void);
+^
+platforms/embedded/fomu/include/xxhash.h:168:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH32_hash_t XXH32 (const void* input, size_t length, unsigned int seed);
+^
+platforms/embedded/fomu/include/xxhash.h:172:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH32_state_t* XXH32_createState(void);
+^
+platforms/embedded/fomu/include/xxhash.h:173:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode  XXH32_freeState(XXH32_state_t* statePtr);
+^
+platforms/embedded/fomu/include/xxhash.h:174:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dst_state, const XXH32_state_t* src_state);
+^
+platforms/embedded/fomu/include/xxhash.h:176:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH32_reset  (XXH32_state_t* statePtr, unsigned int seed);
+^
+platforms/embedded/fomu/include/xxhash.h:177:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* statePtr, const void* input, size_t length);
+^
+platforms/embedded/fomu/include/xxhash.h:178:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH32_hash_t  XXH32_digest (const XXH32_state_t* statePtr);
+^
+platforms/embedded/fomu/include/xxhash.h:205:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH32_canonicalFromHash(XXH32_canonical_t* dst, XXH32_hash_t hash);
+^
+platforms/embedded/fomu/include/xxhash.h:206:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH32_hash_t XXH32_hashFromCanonical(const XXH32_canonical_t* src);
+^
+platforms/embedded/fomu/include/xxhash.h:226:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH64_hash_t XXH64 (const void* input, size_t length, unsigned long long seed);
+^
+platforms/embedded/fomu/include/xxhash.h:230:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH64_state_t* XXH64_createState(void);
+^
+platforms/embedded/fomu/include/xxhash.h:231:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode  XXH64_freeState(XXH64_state_t* statePtr);
+^
+platforms/embedded/fomu/include/xxhash.h:232:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dst_state, const XXH64_state_t* src_state);
+^
+platforms/embedded/fomu/include/xxhash.h:234:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH64_reset  (XXH64_state_t* statePtr, unsigned long long seed);
+^
+platforms/embedded/fomu/include/xxhash.h:235:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* statePtr, const void* input, size_t length);
+^
+platforms/embedded/fomu/include/xxhash.h:236:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH64_hash_t  XXH64_digest (const XXH64_state_t* statePtr);
+^
+platforms/embedded/fomu/include/xxhash.h:240:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH64_canonicalFromHash(XXH64_canonical_t* dst, XXH64_hash_t hash);
+^
+platforms/embedded/fomu/include/xxhash.h:241:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH64_hash_t XXH64_hashFromCanonical(const XXH64_canonical_t* src);
+^
+platforms/embedded/fomu/include/xxhash.c:251:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API unsigned XXH_versionNumber (void) { return XXH_VERSION_NUMBER; }
+^
+platforms/embedded/fomu/include/xxhash.c:328:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API unsigned int XXH32 (const void* input, size_t len, unsigned int seed)
+^
+platforms/embedded/fomu/include/xxhash.c:358:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH32_state_t* XXH32_createState(void)
+^
+platforms/embedded/fomu/include/xxhash.c:362:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH32_freeState(XXH32_state_t* statePtr)
+^
+platforms/embedded/fomu/include/xxhash.c:368:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH32_copyState(XXH32_state_t* dstState, const XXH32_state_t* srcState)
+^
+platforms/embedded/fomu/include/xxhash.c:373:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH32_reset(XXH32_state_t* statePtr, unsigned int seed)
+^
+platforms/embedded/fomu/include/xxhash.c:449:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH32_update (XXH32_state_t* state_in, const void* input, size_t len)
+^
+platforms/embedded/fomu/include/xxhash.c:500:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API unsigned int XXH32_digest (const XXH32_state_t* state_in)
+^
+platforms/embedded/fomu/include/xxhash.c:519:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH32_canonicalFromHash(XXH32_canonical_t* dst, XXH32_hash_t hash)
+^
+platforms/embedded/fomu/include/xxhash.c:526:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH32_hash_t XXH32_hashFromCanonical(const XXH32_canonical_t* src)
+^
+platforms/embedded/fomu/include/xxhash.c:711:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API unsigned long long XXH64 (const void* input, size_t len, unsigned long long seed)
+^
+platforms/embedded/fomu/include/xxhash.c:739:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH64_state_t* XXH64_createState(void)
+^
+platforms/embedded/fomu/include/xxhash.c:743:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH64_freeState(XXH64_state_t* statePtr)
+^
+platforms/embedded/fomu/include/xxhash.c:749:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH64_copyState(XXH64_state_t* dstState, const XXH64_state_t* srcState)
+^
+platforms/embedded/fomu/include/xxhash.c:754:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH64_reset(XXH64_state_t* statePtr, unsigned long long seed)
+^
+platforms/embedded/fomu/include/xxhash.c:826:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH_errorcode XXH64_update (XXH64_state_t* state_in, const void* input, size_t len)
+^
+platforms/embedded/fomu/include/xxhash.c:887:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API unsigned long long XXH64_digest (const XXH64_state_t* state_in)
+^
+platforms/embedded/fomu/include/xxhash.c:900:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API void XXH64_canonicalFromHash(XXH64_canonical_t* dst, XXH64_hash_t hash)
+^
+platforms/embedded/fomu/include/xxhash.c:907:0: information: Skipping configuration 'XXH_NAMESPACE' since the value of 'XXH_NAMESPACE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+XXH_PUBLIC_API XXH64_hash_t XXH64_hashFromCanonical(const XXH64_canonical_t* src)
+^
+platforms/embedded/hifive1/src/main.c:50:5: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("Result: %d\n", value);
+    ^
+platforms/embedded/wm_w600/main.c:55:5: warning: %ld in format string (no. 1) requires 'long' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("Result: %ld\n", value);
+    ^
+platforms/embedded/wm_w600/main.c:72:5: warning: %ld in format string (no. 1) requires 'long' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("Elapsed: %ld ms\n", (end - start));
+    ^
+platforms/emscripten/main.c:50:5: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("Result: %d\n", value);
+    ^
+platforms/emscripten/main.c:62:5: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("Elapsed: %d ms\n", elapsed_time);
+    ^
+source/extensions/m3_extensions.c:102:5: style: Label '_catch' is not used. [unusedLabel]
+    _catch:
+    ^
+source/m3_api_libc.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 76 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_api_libc.c:214:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (SuppressLookupFailure (m3_LinkRawFunction (module, spectest, "print",         "v()",      &m3_spectest_dummy)));
+^
+source/m3_api_libc.c:210:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_api_libc.c:214:1: note: result is overwritten
+_   (SuppressLookupFailure (m3_LinkRawFunction (module, spectest, "print",         "v()",      &m3_spectest_dummy)));
+^
+source/m3_api_libc.c:233:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (SuppressLookupFailure (m3_LinkRawFunction (module, env, "_debug",            "i(*i)",   &m3_libc_print)));
+^
+source/m3_api_libc.c:229:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_api_libc.c:233:1: note: result is overwritten
+_   (SuppressLookupFailure (m3_LinkRawFunction (module, env, "_debug",            "i(*i)",   &m3_libc_print)));
+^
+source/m3_api_libc.c:88:10: style: The scope of the variable 'c' can be reduced. [variableScope]
+    char c;
+         ^
+source/m3_api_libc.c:208:39: style:inconclusive: Function 'm3_LinkSpecTest' argument 1 names different: declaration 'io_module' definition 'module'. [funcArgNamesDifferent]
+M3Result  m3_LinkSpecTest  (IM3Module module)
+                                      ^
+source/m3_api_libc.h:16:40: note: Function 'm3_LinkSpecTest' argument 1 names different: declaration 'io_module' definition 'module'.
+M3Result    m3_LinkSpecTest (IM3Module io_module);
+                                       ^
+source/m3_api_libc.c:208:39: note: Function 'm3_LinkSpecTest' argument 1 names different: declaration 'io_module' definition 'module'.
+M3Result  m3_LinkSpecTest  (IM3Module module)
+                                      ^
+source/m3_api_libc.c:227:35: style:inconclusive: Function 'm3_LinkLibC' argument 1 names different: declaration 'io_module' definition 'module'. [funcArgNamesDifferent]
+M3Result  m3_LinkLibC  (IM3Module module)
+                                  ^
+source/m3_api_libc.h:15:40: note: Function 'm3_LinkLibC' argument 1 names different: declaration 'io_module' definition 'module'.
+M3Result    m3_LinkLibC     (IM3Module io_module);
+                                       ^
+source/m3_api_libc.c:227:35: note: Function 'm3_LinkLibC' argument 1 names different: declaration 'io_module' definition 'module'.
+M3Result  m3_LinkLibC  (IM3Module module)
+                                  ^
+source/m3_api_libc.c:29:5: style: Variable 'code' is assigned a value that is never used. [unreadVariable]
+    m3ApiGetArg     (int32_t, code)
+    ^
+source/m3_api_meta_wasi.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 79 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_api_tracer.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 76 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_api_uvwasi.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 80 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_api_wasi.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 90 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_bind.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 75 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_bind.c:48:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (AllocFuncType (& funcType, (u32) maxNumTypes));
+^
+source/m3_bind.c:31:1: note: result is initialized
+_try {
+^
+source/m3_bind.c:48:1: note: result is overwritten
+_   (AllocFuncType (& funcType, (u32) maxNumTypes));
+^
+source/m3_bind.c:105:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (SignatureToFuncType (& ftype, i_linkingSignature));
+^
+source/m3_bind.c:102:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_bind.c:105:1: note: result is overwritten
+_   (SignatureToFuncType (& ftype, i_linkingSignature));
+^
+source/m3_bind.c:135:12: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+    result = m3Err_functionLookupFailed;
+           ^
+source/m3_bind.c:130:1: note: result is initialized
+_try {
+^
+source/m3_bind.c:135:12: note: result is overwritten
+    result = m3Err_functionLookupFailed;
+           ^
+source/m3_code.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 76 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_code.c:148:36: style:inconclusive: Function 'PushCodePage' argument 1 names different: declaration 'io_list' definition 'i_list'. [funcArgNamesDifferent]
+void  PushCodePage  (IM3CodePage * i_list, IM3CodePage i_codePage)
+                                   ^
+source/m3_code.h:39:64: note: Function 'PushCodePage' argument 1 names different: declaration 'io_list' definition 'i_list'.
+void                    PushCodePage            (IM3CodePage * io_list, IM3CodePage i_codePage);
+                                                               ^
+source/m3_code.c:148:36: note: Function 'PushCodePage' argument 1 names different: declaration 'io_list' definition 'i_list'.
+void  PushCodePage  (IM3CodePage * i_list, IM3CodePage i_codePage)
+                                   ^
+source/m3_code.c:156:42: style:inconclusive: Function 'PopCodePage' argument 1 names different: declaration 'io_list' definition 'i_list'. [funcArgNamesDifferent]
+IM3CodePage  PopCodePage  (IM3CodePage * i_list)
+                                         ^
+source/m3_code.h:40:64: note: Function 'PopCodePage' argument 1 names different: declaration 'io_list' definition 'i_list'.
+IM3CodePage             PopCodePage             (IM3CodePage * io_list);
+                                                               ^
+source/m3_code.c:156:42: note: Function 'PopCodePage' argument 1 names different: declaration 'io_list' definition 'i_list'.
+IM3CodePage  PopCodePage  (IM3CodePage * i_list)
+                                         ^
+source/m3_compile.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 86 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_exec.h:598:10: warning: Identical condition and return expression 'r', return value is always 0 [identicalConditionAfterEarlyExit]
+    else forwardTrap (r);
+         ^
+source/m3_exec.h:596:9: note: If condition 'r' is true, the function will return/exit
+    if (M3_UNLIKELY(r))
+        ^
+source/m3_exec.h:598:10: note: Returning identical expression 'r'
+    else forwardTrap (r);
+         ^
+source/m3_compile.c:578:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (Push (o, i_type, slot));
+^
+source/m3_compile.c:575:21: note: result is initialized
+    M3Result result = m3Err_none;                                                       d_m3Assert ((u16) d_m3Reg0SlotAlias > (u16) d_m3MaxFunctionSlots);
+                    ^
+source/m3_compile.c:578:1: note: result is overwritten
+_   (Push (o, i_type, slot));
+^
+source/m3_compile.c:620:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_       (Pop (o));
+^
+source/m3_compile.c:614:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:620:1: note: result is overwritten
+_       (Pop (o));
+^
+source/m3_compile.c:635:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (AllocateSlots (o, & slot, i_type));
+^
+source/m3_compile.c:631:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:635:1: note: result is overwritten
+_   (AllocateSlots (o, & slot, i_type));
+^
+source/m3_compile.c:732:1: style: Variable 'result' is reassigned a value before the old one has been used. [redundantAssignment]
+_               (EmitOp (o, op_Const64));
+^
+source/m3_compile.c:729:20: note: result is assigned
+            result = m3Err_none;
+                   ^
+source/m3_compile.c:732:1: note: result is overwritten
+_               (EmitOp (o, op_Const64));
+^
+source/m3_compile.c:847:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (EmitOp (o, op));
+^
+source/m3_compile.c:834:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:847:1: note: result is overwritten
+_   (EmitOp (o, op));
+^
+source/m3_compile.c:892:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (EmitOp (o, op));
+^
+source/m3_compile.c:880:21: note: result is initialized
+    M3Result result = m3Err_none;             d_m3Assert (i_destSlot != i_preserveSlot);
+                    ^
+source/m3_compile.c:892:1: note: result is overwritten
+_   (EmitOp (o, op));
+^
+source/m3_compile.c:1207:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (Read_u8 (& opcode, & o->wasm, o->wasmEnd));             m3log (compile, d_indent " (FC: %" PRIi32 ")", get_indention_string (o), opcode);
+^
+source/m3_compile.c:1205:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1207:1: note: result is overwritten
+_   (Read_u8 (& opcode, & o->wasm, o->wasmEnd));             m3log (compile, d_indent " (FC: %" PRIi32 ")", get_indention_string (o), opcode);
+^
+source/m3_compile.c:1324:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& localIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1321:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1324:1: note: result is overwritten
+_   (ReadLEB_u32 (& localIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1366:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_      (EmitOp (o, op));
+^
+source/m3_compile.c:1353:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:1366:1: note: result is overwritten
+_      (EmitOp (o, op));
+^
+source/m3_compile.c:1385:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& globalIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1382:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:1385:1: note: result is overwritten
+_   (ReadLEB_u32 (& globalIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1414:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (EmitOp (o, op_Branch));
+^
+source/m3_compile.c:1412:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:1414:1: note: result is overwritten
+_   (EmitOp (o, op_Branch));
+^
+source/m3_compile.c:1533:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& targetCount, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1531:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1533:1: note: result is overwritten
+_   (ReadLEB_u32 (& targetCount, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1660:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& functionIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1658:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1660:1: note: result is overwritten
+_   (ReadLEB_u32 (& functionIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1705:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& typeIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1703:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1705:1: note: result is overwritten
+_   (ReadLEB_u32 (& typeIndex, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1780:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& targetMemoryIdx, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1769:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:1780:1: note: result is overwritten
+_   (ReadLEB_u32 (& targetMemoryIdx, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:1905:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (AcquireCompilationCodePage (o, & elsePage));
+^
+source/m3_compile.c:1902:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1905:1: note: result is overwritten
+_   (AcquireCompilationCodePage (o, & elsePage));
+^
+source/m3_compile.c:1934:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (PreserveNonTopRegisters (o));
+^
+source/m3_compile.c:1932:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:1934:1: note: result is overwritten
+_   (PreserveNonTopRegisters (o));
+^
+source/m3_compile.c:2054:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (PushRegister (o, type));
+^
+source/m3_compile.c:1982:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_compile.c:2054:1: note: result is overwritten
+_   (PushRegister (o, type));
+^
+source/m3_compile.c:2184:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (EmitOp (o, op));
+^
+source/m3_compile.c:2175:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:2184:1: note: result is overwritten
+_   (EmitOp (o, op));
+^
+source/m3_compile.c:2202:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& alignHint, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:2199:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:2202:1: note: result is overwritten
+_   (ReadLEB_u32 (& alignHint, & o->wasm, o->wasmEnd));
+^
+source/m3_compile.c:2742:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (CompileBlockStatements (o));
+^
+source/m3_compile.c:2687:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:2742:1: note: result is overwritten
+_   (CompileBlockStatements (o));
+^
+source/m3_compile.c:2859:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& size, & o->wasm, o->wasmEnd));                  d_m3Assert (size == (o->wasmEnd - o->wasm))
+^
+source/m3_compile.c:2856:1: note: result is initialized
+_try {
+^
+source/m3_compile.c:2859:1: note: result is overwritten
+_   (ReadLEB_u32 (& size, & o->wasm, o->wasmEnd));                  d_m3Assert (size == (o->wasmEnd - o->wasm))
+^
+source/m3_math_utils.h:242:63: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    if (M3_UNLIKELY(a == 0 and a == b)) return signbit(a) ? a : b;
+                                                              ^
+source/m3_math_utils.h:249:63: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    if (M3_UNLIKELY(a == 0 and a == b)) return signbit(a) ? b : a;
+                                                              ^
+source/m3_math_utils.h:256:63: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    if (M3_UNLIKELY(a == 0 and a == b)) return signbit(a) ? a : b;
+                                                              ^
+source/m3_math_utils.h:263:63: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    if (M3_UNLIKELY(a == 0 and a == b)) return signbit(a) ? b : a;
+                                                              ^
+source/m3_compile.c:2565:51: style:inconclusive: Function 'CompileBlockStatements' argument 1 names different: declaration 'io' definition 'o'. [funcArgNamesDifferent]
+M3Result  CompileBlockStatements  (IM3Compilation o)
+                                                  ^
+source/m3_compile.h:199:57: note: Function 'CompileBlockStatements' argument 1 names different: declaration 'io' definition 'o'.
+M3Result    CompileBlockStatements      (IM3Compilation io);
+                                                        ^
+source/m3_compile.c:2565:51: note: Function 'CompileBlockStatements' argument 1 names different: declaration 'io' definition 'o'.
+M3Result  CompileBlockStatements  (IM3Compilation o)
+                                                  ^
+source/m3_compile.c:2653:41: style:inconclusive: Function 'CompileBlock' argument 1 names different: declaration 'io' definition 'o'. [funcArgNamesDifferent]
+M3Result  CompileBlock  (IM3Compilation o, IM3FuncType i_blockType, m3opcode_t i_blockOpcode)
+                                        ^
+source/m3_compile.h:197:57: note: Function 'CompileBlock' argument 1 names different: declaration 'io' definition 'o'.
+M3Result    CompileBlock                (IM3Compilation io, IM3FuncType i_blockType, m3opcode_t i_blockOpcode);
+                                                        ^
+source/m3_compile.c:2653:41: note: Function 'CompileBlock' argument 1 names different: declaration 'io' definition 'o'.
+M3Result  CompileBlock  (IM3Compilation o, IM3FuncType i_blockType, m3opcode_t i_blockOpcode)
+                                        ^
+source/m3_exec.h:668:14: style: Variable '_mem' is assigned a value that is never used. [unreadVariable]
+        _mem = memory->mallocated;
+             ^
+source/m3_exec.h:828:18: style: Variable '_mem' is assigned a value that is never used. [unreadVariable]
+            _mem = memory->mallocated;
+                 ^
+source/m3_core.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 79 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_core.c:132:29: style:inconclusive: Function 'm3_Free_Impl' argument 1 names different: declaration 'i_ptr' definition 'io_ptr'. [funcArgNamesDifferent]
+void  m3_Free_Impl  (void * io_ptr)
+                            ^
+source/m3_core.h:222:45: note: Function 'm3_Free_Impl' argument 1 names different: declaration 'i_ptr' definition 'io_ptr'.
+void        m3_Free_Impl            (void * i_ptr);
+                                            ^
+source/m3_core.c:132:29: note: Function 'm3_Free_Impl' argument 1 names different: declaration 'i_ptr' definition 'io_ptr'.
+void  m3_Free_Impl  (void * io_ptr)
+                            ^
+source/m3_core.c:215:21: style:inconclusive: Function 'IsFpType' argument 1 names different: declaration 'i_wasmType' definition 'i_m3Type'. [funcArgNamesDifferent]
+bool  IsFpType  (u8 i_m3Type)
+                    ^
+source/m3_core.h:276:41: note: Function 'IsFpType' argument 1 names different: declaration 'i_wasmType' definition 'i_m3Type'.
+bool        IsFpType                (u8 i_wasmType);
+                                        ^
+source/m3_core.c:215:21: note: Function 'IsFpType' argument 1 names different: declaration 'i_wasmType' definition 'i_m3Type'.
+bool  IsFpType  (u8 i_m3Type)
+                    ^
+source/m3_core.c:221:22: style:inconclusive: Function 'IsIntType' argument 1 names different: declaration 'i_wasmType' definition 'i_m3Type'. [funcArgNamesDifferent]
+bool  IsIntType  (u8 i_m3Type)
+                     ^
+source/m3_core.h:275:41: note: Function 'IsIntType' argument 1 names different: declaration 'i_wasmType' definition 'i_m3Type'.
+bool        IsIntType               (u8 i_wasmType);
+                                        ^
+source/m3_core.c:221:22: note: Function 'IsIntType' argument 1 names different: declaration 'i_wasmType' definition 'i_m3Type'.
+bool  IsIntType  (u8 i_m3Type)
+                     ^
+source/m3_env.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 81 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_env.c:871:30: portability: Casting between unsigned char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f32:  *(f32*)(s) = va_arg(i_args, f64);  s += 8; break; // f32 is passed as f64
+                             ^
+source/m3_env.c:872:30: portability: Casting between unsigned char * and double * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f64:  *(f64*)(s) = va_arg(i_args, f64);  s += 8; break;
+                             ^
+source/m3_env.c:916:30: portability: Casting between unsigned char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f32:  *(f32*)(s) = *(f32*)i_argptrs[i];  s += 8; break;
+                             ^
+source/m3_env.c:917:30: portability: Casting between unsigned char * and double * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f64:  *(f64*)(s) = *(f64*)i_argptrs[i];  s += 8; break;
+                             ^
+source/m3_env.c:961:30: portability: Casting between unsigned char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f32:  *(f32*)(s) = strtod(i_argv[i], NULL);       s += 8; break;  // strtof would be less portable
+                             ^
+source/m3_env.c:962:30: portability: Casting between unsigned char * and double * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f64:  *(f64*)(s) = strtod(i_argv[i], NULL);       s += 8; break;
+                             ^
+source/m3_env.c:1004:52: portability: Casting between unsigned char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f32:  *(f32*)o_retptrs[i] = *(f32*)(s); s += 8; break;
+                                                   ^
+source/m3_env.c:1005:52: portability: Casting between unsigned char * and double * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f64:  *(f64*)o_retptrs[i] = *(f64*)(s); s += 8; break;
+                                                   ^
+source/m3_env.c:1038:54: portability: Casting between unsigned char * and float * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f32:  *va_arg(o_rets, f32*) = *(f32*)(s);  s += 8; break;
+                                                     ^
+source/m3_env.c:1039:54: portability: Casting between unsigned char * and double * which have an incompatible binary data representation. [invalidPointerCast]
+        case c_m3Type_f64:  *va_arg(o_rets, f64*) = *(f64*)(s);  s += 8; break;
+                                                     ^
+source/m3_env.c:292:16: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+        result = CompileBlock (o, ftype, c_waOp_block);
+               ^
+source/m3_env.c:254:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_env.c:292:16: note: result is overwritten
+        result = CompileBlock (o, ftype, c_waOp_block);
+               ^
+source/m3_env.c:596:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (InitMemory (io_runtime, io_module));
+^
+source/m3_env.c:587:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_env.c:596:1: note: result is overwritten
+_   (InitMemory (io_runtime, io_module));
+^
+source/m3_env.c:861:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (checkStartFunction(i_function->module))
+^
+source/m3_env.c:848:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_env.c:861:1: note: result is overwritten
+_   (checkStartFunction(i_function->module))
+^
+source/m3_env.c:906:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (checkStartFunction(i_function->module))
+^
+source/m3_env.c:890:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_env.c:906:1: note: result is overwritten
+_   (checkStartFunction(i_function->module))
+^
+source/m3_env.c:951:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (checkStartFunction(i_function->module))
+^
+source/m3_env.c:935:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_env.c:951:1: note: result is overwritten
+_   (checkStartFunction(i_function->module))
+^
+source/m3_env.c:173:44: style:inconclusive: Function 'm3_NewRuntime' argument 1 names different: declaration 'io_environment' definition 'i_environment'. [funcArgNamesDifferent]
+IM3Runtime  m3_NewRuntime  (IM3Environment i_environment, u32 i_stackSizeInBytes, void * i_userdata)
+                                           ^
+source/wasm3.h:208:77: note: Function 'm3_NewRuntime' argument 1 names different: declaration 'io_environment' definition 'i_environment'.
+    IM3Runtime          m3_NewRuntime               (IM3Environment         io_environment,
+                                                                            ^
+source/m3_env.c:173:44: note: Function 'm3_NewRuntime' argument 1 names different: declaration 'io_environment' definition 'i_environment'.
+IM3Runtime  m3_NewRuntime  (IM3Environment i_environment, u32 i_stackSizeInBytes, void * i_userdata)
+                                           ^
+source/m3_env.c:229:36: style:inconclusive: Function 'Runtime_Release' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'. [funcArgNamesDifferent]
+void  Runtime_Release  (IM3Runtime i_runtime)
+                                   ^
+source/m3_env.h:198:69: note: Function 'Runtime_Release' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+void                        Runtime_Release             (IM3Runtime io_runtime);
+                                                                    ^
+source/m3_env.c:229:36: note: Function 'Runtime_Release' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+void  Runtime_Release  (IM3Runtime i_runtime)
+                                   ^
+source/m3_env.c:542:35: style:inconclusive: Function 'm3_RunStart' argument 1 names different: declaration 'i_module' definition 'io_module'. [funcArgNamesDifferent]
+M3Result  m3_RunStart  (IM3Module io_module)
+                                  ^
+source/wasm3.h:247:64: note: Function 'm3_RunStart' argument 1 names different: declaration 'i_module' definition 'io_module'.
+    M3Result            m3_RunStart                 (IM3Module i_module);
+                                                               ^
+source/m3_env.c:542:35: note: Function 'm3_RunStart' argument 1 names different: declaration 'i_module' definition 'io_module'.
+M3Result  m3_RunStart  (IM3Module io_module)
+                                  ^
+source/m3_env.c:791:63: style:inconclusive: Function 'm3_GetArgType' argument 2 names different: declaration 'i_index' definition 'index'. [funcArgNamesDifferent]
+M3ValueType  m3_GetArgType  (IM3Function i_function, uint32_t index)
+                                                              ^
+source/wasm3.h:297:87: note: Function 'm3_GetArgType' argument 2 names different: declaration 'i_index' definition 'index'.
+    M3ValueType         m3_GetArgType               (IM3Function i_function, uint32_t i_index);
+                                                                                      ^
+source/m3_env.c:791:63: note: Function 'm3_GetArgType' argument 2 names different: declaration 'i_index' definition 'index'.
+M3ValueType  m3_GetArgType  (IM3Function i_function, uint32_t index)
+                                                              ^
+source/m3_env.c:802:63: style:inconclusive: Function 'm3_GetRetType' argument 2 names different: declaration 'i_index' definition 'index'. [funcArgNamesDifferent]
+M3ValueType  m3_GetRetType  (IM3Function i_function, uint32_t index)
+                                                              ^
+source/wasm3.h:298:87: note: Function 'm3_GetRetType' argument 2 names different: declaration 'i_index' definition 'index'.
+    M3ValueType         m3_GetRetType               (IM3Function i_function, uint32_t i_index);
+                                                                                      ^
+source/m3_env.c:802:63: note: Function 'm3_GetRetType' argument 2 names different: declaration 'i_index' definition 'index'.
+M3ValueType  m3_GetRetType  (IM3Function i_function, uint32_t index)
+                                                              ^
+source/m3_env.c:1064:55: style:inconclusive: Function 'AcquireCodePageWithCapacity' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'. [funcArgNamesDifferent]
+IM3CodePage  AcquireCodePageWithCapacity  (IM3Runtime i_runtime, u32 i_minLineCount)
+                                                      ^
+source/m3_env.h:208:69: note: Function 'AcquireCodePageWithCapacity' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+IM3CodePage                 AcquireCodePageWithCapacity (IM3Runtime io_runtime, u32 i_lineCount);
+                                                                    ^
+source/m3_env.c:1064:55: note: Function 'AcquireCodePageWithCapacity' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+IM3CodePage  AcquireCodePageWithCapacity  (IM3Runtime i_runtime, u32 i_minLineCount)
+                                                      ^
+source/m3_env.c:1064:70: style:inconclusive: Function 'AcquireCodePageWithCapacity' argument 2 names different: declaration 'i_lineCount' definition 'i_minLineCount'. [funcArgNamesDifferent]
+IM3CodePage  AcquireCodePageWithCapacity  (IM3Runtime i_runtime, u32 i_minLineCount)
+                                                                     ^
+source/m3_env.h:208:85: note: Function 'AcquireCodePageWithCapacity' argument 2 names different: declaration 'i_lineCount' definition 'i_minLineCount'.
+IM3CodePage                 AcquireCodePageWithCapacity (IM3Runtime io_runtime, u32 i_lineCount);
+                                                                                    ^
+source/m3_env.c:1064:70: note: Function 'AcquireCodePageWithCapacity' argument 2 names different: declaration 'i_lineCount' definition 'i_minLineCount'.
+IM3CodePage  AcquireCodePageWithCapacity  (IM3Runtime i_runtime, u32 i_minLineCount)
+                                                                     ^
+source/m3_env.c:1088:43: style:inconclusive: Function 'AcquireCodePage' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'. [funcArgNamesDifferent]
+IM3CodePage  AcquireCodePage  (IM3Runtime i_runtime)
+                                          ^
+source/m3_env.h:207:69: note: Function 'AcquireCodePage' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+IM3CodePage                 AcquireCodePage             (IM3Runtime io_runtime);
+                                                                    ^
+source/m3_env.c:1088:43: note: Function 'AcquireCodePage' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+IM3CodePage  AcquireCodePage  (IM3Runtime i_runtime)
+                                          ^
+source/m3_env.c:1094:36: style:inconclusive: Function 'ReleaseCodePage' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'. [funcArgNamesDifferent]
+void  ReleaseCodePage  (IM3Runtime i_runtime, IM3CodePage i_codePage)
+                                   ^
+source/m3_env.h:209:69: note: Function 'ReleaseCodePage' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+void                        ReleaseCodePage             (IM3Runtime io_runtime, IM3CodePage i_codePage);
+                                                                    ^
+source/m3_env.c:1094:36: note: Function 'ReleaseCodePage' argument 1 names different: declaration 'io_runtime' definition 'i_runtime'.
+void  ReleaseCodePage  (IM3Runtime i_runtime, IM3CodePage i_codePage)
+                                   ^
+source/m3_function.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 76 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_info.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 77 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_module.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 75 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_module.c:85:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (Module_PreallocFunctions(io_module, io_module->numFunctions));
+^
+source/m3_module.c:82:1: note: result is initialized
+_try {
+^
+source/m3_module.c:85:1: note: result is overwritten
+_   (Module_PreallocFunctions(io_module, io_module->numFunctions));
+^
+source/m3_parse.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 76 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+source/m3_parse.c:28:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u7 (& flag, io_bytes, i_end));                   // really a u1
+^
+source/m3_parse.c:24:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:28:1: note: result is overwritten
+_   (ReadLEB_u7 (& flag, io_bytes, i_end));                   // really a u1
+^
+source/m3_parse.c:45:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numTypes, & i_bytes, i_end));                                   m3log (parse, "** Type [%d]", numTypes);
+^
+source/m3_parse.c:43:1: note: result is initialized
+_try {
+^
+source/m3_parse.c:45:1: note: result is overwritten
+_   (ReadLEB_u32 (& numTypes, & i_bytes, i_end));                                   m3log (parse, "** Type [%d]", numTypes);
+^
+source/m3_parse.c:125:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numFunctions, & i_bytes, i_end));                               m3log (parse, "** Function [%d]", numFunctions);
+^
+source/m3_parse.c:122:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:125:1: note: result is overwritten
+_   (ReadLEB_u32 (& numFunctions, & i_bytes, i_end));                               m3log (parse, "** Function [%d]", numFunctions);
+^
+source/m3_parse.c:150:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numImports, & i_bytes, i_end));                                 m3log (parse, "** Import [%d]", numImports);
+^
+source/m3_parse.c:145:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:150:1: note: result is overwritten
+_   (ReadLEB_u32 (& numImports, & i_bytes, i_end));                                 m3log (parse, "** Import [%d]", numImports);
+^
+source/m3_parse.c:227:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numExports, & i_bytes, i_end));                                 m3log (parse, "** Export [%d]", numExports);
+^
+source/m3_parse.c:223:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:227:1: note: result is overwritten
+_   (ReadLEB_u32 (& numExports, & i_bytes, i_end));                                 m3log (parse, "** Export [%d]", numExports);
+^
+source/m3_parse.c:274:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& startFuncIndex, & i_bytes, i_end));                               m3log (parse, "** Start Function: %d", startFuncIndex);
+^
+source/m3_parse.c:271:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:274:1: note: result is overwritten
+_   (ReadLEB_u32 (& startFuncIndex, & i_bytes, i_end));                               m3log (parse, "** Start Function: %d", startFuncIndex);
+^
+source/m3_parse.c:299:12: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+    result = CompileBlockStatements (& compilation);
+           ^
+source/m3_parse.c:288:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:299:12: note: result is overwritten
+    result = CompileBlockStatements (& compilation);
+           ^
+source/m3_parse.c:312:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numSegments, & i_bytes, i_end));                         m3log (parse, "** Element [%d]", numSegments);
+^
+source/m3_parse.c:309:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:312:1: note: result is overwritten
+_   (ReadLEB_u32 (& numSegments, & i_bytes, i_end));                         m3log (parse, "** Element [%d]", numSegments);
+^
+source/m3_parse.c:396:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numDataSegments, & i_bytes, i_end));                            m3log (parse, "** Data [%d]", numDataSegments);
+^
+source/m3_parse.c:393:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:396:1: note: result is overwritten
+_   (ReadLEB_u32 (& numDataSegments, & i_bytes, i_end));                            m3log (parse, "** Data [%d]", numDataSegments);
+^
+source/m3_parse.c:437:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numMemories, & i_bytes, i_end));                             m3log (parse, "** Memory [%d]", numMemories);
+^
+source/m3_parse.c:432:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:437:1: note: result is overwritten
+_   (ReadLEB_u32 (& numMemories, & i_bytes, i_end));                             m3log (parse, "** Memory [%d]", numMemories);
+^
+source/m3_parse.c:452:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (ReadLEB_u32 (& numGlobals, & i_bytes, i_end));                                 m3log (parse, "** Global [%d]", numGlobals);
+^
+source/m3_parse.c:449:21: note: result is initialized
+    M3Result result = m3Err_none;
+                    ^
+source/m3_parse.c:452:1: note: result is overwritten
+_   (ReadLEB_u32 (& numGlobals, & i_bytes, i_end));                                 m3log (parse, "** Global [%d]", numGlobals);
+^
+source/m3_parse.c:609:1: style: Redundant initialization for 'result'. The initialized value is overwritten before it is read. [redundantInitialization]
+_   (Read_u32 (& magic, & pos, end));
+^
+source/m3_parse.c:594:1: note: result is initialized
+_try {
+^
+source/m3_parse.c:609:1: note: result is overwritten
+_   (Read_u32 (& magic, & pos, end));
+^
+source/m3_parse.c:591:89: style:inconclusive: Function 'm3_ParseModule' argument 3 names different: declaration 'i_wasmBytes' definition 'i_bytes'. [funcArgNamesDifferent]
+M3Result  m3_ParseModule  (IM3Environment i_environment, IM3Module * o_module, cbytes_t i_bytes, u32 i_numBytes)
+                                                                                        ^
+source/wasm3.h:232:77: note: Function 'm3_ParseModule' argument 3 names different: declaration 'i_wasmBytes' definition 'i_bytes'.
+                                                     const uint8_t * const  i_wasmBytes,
+                                                                            ^
+source/m3_parse.c:591:89: note: Function 'm3_ParseModule' argument 3 names different: declaration 'i_wasmBytes' definition 'i_bytes'.
+M3Result  m3_ParseModule  (IM3Environment i_environment, IM3Module * o_module, cbytes_t i_bytes, u32 i_numBytes)
+                                                                                        ^
+source/m3_parse.c:591:102: style:inconclusive: Function 'm3_ParseModule' argument 4 names different: declaration 'i_numWasmBytes' definition 'i_numBytes'. [funcArgNamesDifferent]
+M3Result  m3_ParseModule  (IM3Environment i_environment, IM3Module * o_module, cbytes_t i_bytes, u32 i_numBytes)
+                                                                                                     ^
+source/wasm3.h:233:77: note: Function 'm3_ParseModule' argument 4 names different: declaration 'i_numWasmBytes' definition 'i_numBytes'.
+                                                     uint32_t               i_numWasmBytes);
+                                                                            ^
+source/m3_parse.c:591:102: note: Function 'm3_ParseModule' argument 4 names different: declaration 'i_numWasmBytes' definition 'i_numBytes'.
+M3Result  m3_ParseModule  (IM3Environment i_environment, IM3Module * o_module, cbytes_t i_bytes, u32 i_numBytes)
+                                                                                                     ^
+test/wasi/c-ray/c-ray-f.c:306:10: style: The scope of the variable 'ispec' can be reduced. [variableScope]
+  double ispec, idiff;
+         ^
+test/wasi/c-ray/c-ray-f.c:306:17: style: The scope of the variable 'idiff' can be reduced. [variableScope]
+  double ispec, idiff;
+                ^
+test/wasi/c-ray/c-ray-f.c:520:21: error: Uninitialized struct member: pos.x [uninitStructMember]
+   lights[lnum++] = pos;
+                    ^
+test/wasi/c-ray/c-ray-f.c:534:15: error: Uninitialized struct member: col.x [uninitStructMember]
+   cam.targ = col;
+              ^
+test/wasi/c-ray/c-ray-f.c:427:13: style: Variable 'xsz' is assigned a value that is never used. [unreadVariable]
+ double xsz = 2.0, ysz = xres / aspect;
+            ^
+test/wasi/c-ray/c-ray-f.c:427:24: style: Variable 'ysz' is assigned a value that is never used. [unreadVariable]
+ double xsz = 2.0, ysz = xres / aspect;
+                       ^
+test/wasi/mandelbrot/mandel.c:48:5: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("P6 %d %d 255\n", width, height);
+    ^
+test/wasi/mandelbrot/mandel.c:48:5: warning: %d in format string (no. 2) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("P6 %d %d 255\n", width, height);
+    ^
+test/wasi/mandelbrot/mandel.c:66:20: style: The scope of the variable 'xx' can be reduced. [variableScope]
+            double xx, yy;
+                   ^
+test/wasi/mandelbrot/mandel.c:66:24: style: The scope of the variable 'yy' can be reduced. [variableScope]
+            double xx, yy;
+                       ^
+test/wasi/mandelbrot/mandel_dd.c:133:33: style: Expression 'log(1 + x)' can be replaced by 'log1p(x)' to avoid loss of precision. [unpreciseMathCall]
+                int idx = fmod((log(c/64+1)/LOG2+0.45), 1)*(GRADIENTLENGTH-1) + 0.5;
+                                ^
+test/wasi/mandelbrot/mandel_dd.c:67:5: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("P6 %d %d 255\n", width, height);
+    ^
+test/wasi/mandelbrot/mandel_dd.c:67:5: warning: %d in format string (no. 2) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+    printf("P6 %d %d 255\n", width, height);
+    ^
+test/wasi/raymarcher/raymarcher.cpp:41:17: style:inconclusive: Technically the member function 'vec3::operator+' can be const. [functionConst]
+    struct vec3 operator+(struct vec3 other) {
+                ^
+test/wasi/raymarcher/raymarcher.cpp:46:17: style:inconclusive: Technically the member function 'vec3::operator-' can be const. [functionConst]
+    struct vec3 operator-(struct vec3 other) {
+                ^
+test/wasi/raymarcher/raymarcher.cpp:72:19: style: The scope of the variable 'dist' can be reduced. [variableScope]
+            float dist;
+                  ^
+test/wasi/simple/test.c:92:3: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+  printf("fib(%d) = ", n);
+  ^
+test/wasi/simple/test.c:106:3: warning: %d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+  printf("%d [%.3f ms]\n", result, fms);
+  ^
+test/wasi/simple/test.c:112:10: style: Local variable 'c' shadows outer function [shadowFunction]
+    char c = 0;
+         ^
+test/wasi/simple/test.c:123:34: note: Shadowed declaration
+__attribute__((noinline))   void c() {          __builtin_trap();   }
+                                 ^
+test/wasi/simple/test.c:112:10: note: Shadow variable
+    char c = 0;
+         ^
+test/wasi/smallpt/smallpt-ex.cpp:50:44: style: The scope of the variable 'd' can be reduced. [variableScope]
+  double n=sizeof(spheres)/sizeof(Sphere), d, inf=t=1e20;
+                                           ^
+test/wasi/smallpt/smallpt-ex.cpp:20:32: performance: Function parameter 'o_' should be passed by const reference. [passedByValue]
+struct Ray { Vec o, d; Ray(Vec o_, Vec d_) : o(o_), d(d_) {} };
+                               ^
+test/wasi/smallpt/smallpt-ex.cpp:20:40: performance: Function parameter 'd_' should be passed by const reference. [passedByValue]
+struct Ray { Vec o, d; Ray(Vec o_, Vec d_) : o(o_), d(d_) {} };
+                                       ^
+test/wasi/smallpt/smallpt-ex.cpp:26:27: performance: Function parameter 'p_' should be passed by const reference. [passedByValue]
+  Sphere(double rad_, Vec p_, Vec e_, Vec c_, Refl_t refl_):
+                          ^
+test/wasi/smallpt/smallpt-ex.cpp:26:35: performance: Function parameter 'e_' should be passed by const reference. [passedByValue]
+  Sphere(double rad_, Vec p_, Vec e_, Vec c_, Refl_t refl_):
+                                  ^
+test/wasi/smallpt/smallpt-ex.cpp:26:43: performance: Function parameter 'c_' should be passed by const reference. [passedByValue]
+  Sphere(double rad_, Vec p_, Vec e_, Vec c_, Refl_t refl_):
+                                          ^
+test/wasi/smallpt/smallpt-ex.cpp:18:21: style: Parameter 'b' can be declared with const [constParameter]
+  Vec operator%(Vec&b){return Vec(y*b.z-z*b.y,z*b.x-x*b.z,x*b.y-y*b.x);}
+                    ^
+test/wasi/smallpt/smallpt.cpp:49:44: style: The scope of the variable 'd' can be reduced. [variableScope]
+  double n=sizeof(spheres)/sizeof(Sphere), d, inf=t=1e20;
+                                           ^
+test/wasi/smallpt/smallpt.cpp:20:32: performance: Function parameter 'o_' should be passed by const reference. [passedByValue]
+struct Ray { Vec o, d; Ray(Vec o_, Vec d_) : o(o_), d(d_) {} };
+                               ^
+test/wasi/smallpt/smallpt.cpp:20:40: performance: Function parameter 'd_' should be passed by const reference. [passedByValue]
+struct Ray { Vec o, d; Ray(Vec o_, Vec d_) : o(o_), d(d_) {} };
+                                       ^
+test/wasi/smallpt/smallpt.cpp:26:27: performance: Function parameter 'p_' should be passed by const reference. [passedByValue]
+  Sphere(double rad_, Vec p_, Vec e_, Vec c_, Refl_t refl_):
+                          ^
+test/wasi/smallpt/smallpt.cpp:26:35: performance: Function parameter 'e_' should be passed by const reference. [passedByValue]
+  Sphere(double rad_, Vec p_, Vec e_, Vec c_, Refl_t refl_):
+                                  ^
+test/wasi/smallpt/smallpt.cpp:26:43: performance: Function parameter 'c_' should be passed by const reference. [passedByValue]
+  Sphere(double rad_, Vec p_, Vec e_, Vec c_, Refl_t refl_):
+                                          ^
+test/wasi/smallpt/smallpt.cpp:18:21: style: Parameter 'b' can be declared with const [constParameter]
+  Vec operator%(Vec&b){return Vec(y*b.z-z*b.y,z*b.x-x*b.z,x*b.y-y*b.x);}
+                    ^
+test/wasi/stream/stream.c:479:3: portability: %lu in format string (no. 1) requires 'unsigned long' but the argument type is 'size_t {aka unsigned long}'. [invalidPrintfArgType_uint]
+  printf("WEIRD: sizeof(STREAM_TYPE) = %lu\n",sizeof(STREAM_TYPE));
+  ^
+test/wasi/stream/stream.c:386:23: style: The scope of the variable 'Delta' can be reduced. [variableScope]
+    int  i, minDelta, Delta;
+                      ^
+test/wasi/stream/stream.c:387:12: style: The scope of the variable 't1' can be reduced. [variableScope]
+    double t1, t2, timesfound[M];
+           ^
+test/wasi/stream/stream.c:387:16: style: The scope of the variable 't2' can be reduced. [variableScope]
+    double t1, t2, timesfound[M];
+               ^
+test/wasi/stream/stream.c:426:11: style: Variable 'i' is assigned a value that is never used. [unreadVariable]
+        i = gettimeofday(&tp,&tzp);
+          ^
+source/m3_function.c:113:0: style: The function 'Function_FreeCompiledCode' is never used. [unusedFunction]
+
+^
+source/m3_code.c:190:0: style: The function 'GetEndCodePage' is never used. [unusedFunction]
+
+^
+source/m3_function.c:220:0: style: The function 'GetFunctionReturnType' is never used. [unusedFunction]
+
+^
+source/m3_code.c:133:0: style: The function 'GetPageStartPC' is never used. [unusedFunction]
+
+^
+platforms/android/app/src/main/cpp/jni.c:28:0: style: The function 'JNI_OnLoad' is never used. [unusedFunction]
+
+^
+platforms/android/app/src/main/cpp/jni.c:73:0: style: The function 'Java_com_example_wasm3_MainActivity_runMain' is never used. [unusedFunction]
+
+^
+platforms/app_fuzz/fuzzer.c:15:0: style: The function 'LLVMFuzzerTestOneInput' is never used. [unusedFunction]
+
+^
+source/m3_parse.c:14:0: style: The function 'ParseType_Table' is never used. [unusedFunction]
+
+^
+source/m3_code.c:156:0: style: The function 'PopCodePage' is never used. [unusedFunction]
+
+^
+source/m3_core.c:249:0: style: The function 'Read_u64' is never used. [unusedFunction]
+
+^
+platforms/embedded/wm_w600/main.c:80:0: style: The function 'UserMain' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:328:0: style: The function 'XXH32' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:519:0: style: The function 'XXH32_canonicalFromHash' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:368:0: style: The function 'XXH32_copyState' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:358:0: style: The function 'XXH32_createState' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:500:0: style: The function 'XXH32_digest' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:362:0: style: The function 'XXH32_freeState' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:526:0: style: The function 'XXH32_hashFromCanonical' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:373:0: style: The function 'XXH32_reset' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:449:0: style: The function 'XXH32_update' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:711:0: style: The function 'XXH64' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:900:0: style: The function 'XXH64_canonicalFromHash' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:749:0: style: The function 'XXH64_copyState' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:739:0: style: The function 'XXH64_createState' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:887:0: style: The function 'XXH64_digest' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:743:0: style: The function 'XXH64_freeState' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:907:0: style: The function 'XXH64_hashFromCanonical' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:754:0: style: The function 'XXH64_reset' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:826:0: style: The function 'XXH64_update' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/include/xxhash.c:251:0: style: The function 'XXH_versionNumber' is never used. [unusedFunction]
+
+^
+platforms/embedded/esp32-idf-wasi/main/main.cpp:63:0: style: The function 'app_main' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/time.c:15:0: style: The function 'elapsed' is never used. [unusedFunction]
+
+^
+platforms/emscripten_lib/main.c:29:0: style: The function 'free_runtime' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/main.c:94:0: style: The function 'isr' is never used. [unusedFunction]
+
+^
+platforms/embedded/arduino/src/main.cpp:79:0: style: The function 'loop' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/main.c:114:0: style: The function 'm3Yield' is never used. [unusedFunction]
+
+^
+source/m3_core.c:15:0: style: The function 'm3_Abort' is never used. [unusedFunction]
+
+^
+source/m3_module.c:167:0: style: The function 'm3_GetModuleRuntime' is never used. [unusedFunction]
+
+^
+source/m3_env.c:196:0: style: The function 'm3_GetUserData' is never used. [unusedFunction]
+
+^
+source/m3_env.c:80:0: style: The function 'm3_SetCustomSectionHandler' is never used. [unusedFunction]
+
+^
+platforms/embedded/wm_w600/main.c:75:0: style: The function 'pre_gpio_config' is never used. [unusedFunction]
+
+^
+platforms/ios/wasm3/main.c:95:0: style: The function 'redirect_output' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/rgb.c:67:0: style: The function 'rgb_in_time' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/rgb.c:62:0: style: The function 'rgb_off_time' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/rgb.c:58:0: style: The function 'rgb_on_time' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/rgb.c:71:0: style: The function 'rgb_out_time' is never used. [unusedFunction]
+
+^
+platforms/ios/wasm3/main.c:106:0: style: The function 'run_app' is never used. [unusedFunction]
+
+^
+platforms/cpp/wasm/test_prog.c:11:0: style: The function 'test' is never used. [unusedFunction]
+
+^
+platforms/cpp/wasm/test_prog.c:38:0: style: The function 'test_counter_add' is never used. [unusedFunction]
+
+^
+platforms/cpp/wasm/test_prog.c:28:0: style: The function 'test_counter_get' is never used. [unusedFunction]
+
+^
+platforms/cpp/wasm/test_prog.c:33:0: style: The function 'test_counter_inc' is never used. [unusedFunction]
+
+^
+platforms/cpp/wasm/test_prog.c:18:0: style: The function 'test_memcpy' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:306:0: style: The function 'usb_ack_out' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:284:0: style: The function 'usb_can_getc' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:44:0: style: The function 'usb_disconnect' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:319:0: style: The function 'usb_err_out' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:252:0: style: The function 'usb_getc' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:261:0: style: The function 'usb_putc' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:324:0: style: The function 'usb_recv' is never used. [unusedFunction]
+
+^
+platforms/embedded/fomu/src/usb-epfifo.c:167:0: style: The function 'usb_wait_for_send_done' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
